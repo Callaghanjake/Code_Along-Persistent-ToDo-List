@@ -26,7 +26,7 @@ function renderItems() {
 
         let button = document.createElement('button');
         button.textContent = 'Delete';
-        button.onClick = () => {removeItem(idx)};
+        button.onclick = () => removeItem(idx);
 
         container.appendChild(text);
         container.appendChild(button);
