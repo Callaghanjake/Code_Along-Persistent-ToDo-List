@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+p {
+    font-size: 1.5em;
+}
+
+.container {
+    display: grid;
+    margin: auto;
+    grid-template-columns: repeat(3, 1fr);
+    width: 50%;
+    min-height: 50vh;
+}
+
+.page-title {
+    grid-column: 1 / 4;
+    place-self: center;
+}
+
+.item-title {
+    grid-column: 1 / 4;
+    place-self: center center;
+}
+
+.alert {
+    grid-column: 1 / 4;
+    grid-row: 3;
+    place-self: center center;
+    padding: 10px;
+    color: red;
+}
+
+.items {
+    grid-column: 1 / 4;
+    grid-row: 4;
+}
+
+.item-input {
+    grid-column: 1 / 4;
+    grid-row: 5;
+    place-self: center stretch;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: solid 1px black;
+
+}
+
+.addBtn {
+    grid-column: 1 / 4;
+    grid-row: 6;
+    place-self: center stretch;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
