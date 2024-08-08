@@ -9,6 +9,10 @@ let input = document.querySelector('.item-input');
 let alertSpan = document.querySelector('.alert');
 let addBtn = document.querySelector('.addBtn'); 
 
+// Cookie variable
+
+let storageKey = 'items';
+
 // To Do List Functions
 
 function renderItems() {
@@ -36,11 +40,16 @@ function renderItems() {
 }
 
 function loadItems() {
-
+    let oldItems = localStorage.getItem(storageKey);
+    if (oldItems) {
+        items = JSON.parse(oldItems);
+        renderItems();
+    }
 }
 
 function saveItems() {
-
+    let stringItems = JSON.stringify(items);
+    localStorage.setItem(storageKey, stringItems);
 }
 
 function addItems() {
@@ -52,6 +61,7 @@ function addItems() {
     items.push(value);
     renderItems();
     input.value = '';
+    saveItems();
 }
 
 addBtn.addEventListener('click', () => {
@@ -61,4 +71,7 @@ addBtn.addEventListener('click', () => {
 function removeItem(idx) {
     items.splice(idx, 1);
     renderItems();
+    saveItems();
 }
+
+document.addEventListener('DOMContentLoaded', loadItems);
