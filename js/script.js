@@ -12,8 +12,16 @@ function renderItems() {
     itemsDiv.textContent = null;
 
     for (let [idx, item] of Object.entries(items)) {
+
+        let container = document.createElement('div');
+        container.style.marginBottom = '10px';
+
         let text = document.createElement('p');
         text.textContent = item;
+
+        let button = document.createElement('button');
+        button.textContent = 'Delete';
+        
 
         itemsDiv.appendChild(text);
     }
