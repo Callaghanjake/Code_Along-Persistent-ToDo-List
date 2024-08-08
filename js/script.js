@@ -17,15 +17,22 @@ function renderItems() {
         container.style.marginBottom = '10px';
 
         let text = document.createElement('p');
+        text.style.display = 'inline';
+        text.style.marginRight = '10px';
         text.textContent = item;
 
         let button = document.createElement('button');
         button.textContent = 'Delete';
-        
+        button.onClick = () => {removeItem(idx)};
 
-        itemsDiv.appendChild(text);
+        container.appendChild(text);
+        container.appendChild(button);
+
+        itemsDiv.appendChild(container);
     }
 }
+
+renderItems();
 
 function loadItems() {
 
@@ -39,6 +46,7 @@ function addItems() {
 
 }
 
-function removeItem() {
-
+function removeItem(idx) {
+    items.splice(idx, 1);
+    renderItems();
 }
